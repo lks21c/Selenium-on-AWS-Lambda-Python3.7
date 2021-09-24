@@ -9,7 +9,8 @@ CHROMEDRIVER_VER=2.43       # supports Chrome v69-71
 OUT_DIR=/out/build/chrome_headless/python/lib/$RUNTIME/site-packages
 
 docker run -v $(pwd):/out -it lambci/lambda:build-$RUNTIME \
-    pip install selenium==$SELENIUM_VER -t $OUT_DIR
+    pip install selenium==$SELENIUM_VER -t $OUT_DIR \
+    pip install pandas tqdm bs4
 
 cp chrome_headless.py build/chrome_headless/python/chrome_headless.py
 
